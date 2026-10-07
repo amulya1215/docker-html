@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Brand Shoes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3rem;
+            background: #111;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b00;
+        }
+
+        .cart {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(135deg, #1a1a1a, #ff6b00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            background: #fff;
+            color: #ff6b00;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Brands */
+        .brands, .products {
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .brands h2, .products h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #111;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .brand-card {
+            background: #fff;
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255,107,0,0.3);
+        }
+
+        /* Products */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 180px;
+            background: linear-gradient(135deg, #ff6b00, #ffae00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 1.2rem;
+            text-align: left;
+        }
+
+        .product-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-info .brand-name {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-info .price {
+            color: #ff6b00;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 0.7rem;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #ff6b00;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .navbar { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">👟 ShoeVault</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#brands">Brands</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="cart">🛒 <span id="cart-count">0</span></div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Step Into Greatness</h1>
+            <p>Discover the finest collection from the world's top shoe brands</p>
+            <button class="cta-btn" onclick="scrollToProducts()">Shop Now</button>
+        </div>
+    </section>
+
+    <section class="brands" id="brands">
+        <h2>Top Brands</h2>
+        <div class="brand-grid">
+            <div class="brand-card">Nike</div>
+            <div class="brand-card">Adidas</div>
+            <div class="brand-card">Puma</div>
+            <div class="brand-card">Reebok</div>
+            <div class="brand-card">New Balance</div>
+            <div class="brand-card">Converse</div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2>Featured Shoes</h2>
+        <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <footer id="contact">
+        <p>© 2025 ShoeVault. All rights reserved.</p>
+        <p>Contact: info@shoevault.com</p>
+    </footer>
+
+    <script>
+        const products = [
+            { id: 1, name: "Air Max 270", brand: "Nike", price: 150, icon: "👟" },
+            { id: 2, name: "Ultraboost 22", brand: "Adidas", price: 180, icon: "👞" },
+            { id: 3, name: "RS-X Reinvention", brand: "Puma", price: 110, icon: "👟" },
+            { id: 4, name: "Classic Leather", brand: "Reebok", price: 90, icon: "👞" },
+            { id: 5, name: "574 Core", brand: "New Balance", price: 100, icon: "👟" },
+            { id: 6, name: "Chuck Taylor All Star", brand: "Converse", price: 65, icon: "👞" },
+            { id: 7, name: "Air Force 1", brand: "Nike", price: 130, icon: "👟" },
+            { id: 8, name: "Superstar", brand: "Adidas", price: 95, icon: "👞" }
+        ];
+
+        let cartCount = 0;
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <div class="product-img">${p.icon}</div>
+                    <div class="product-info">
+                        <h3>${p.name}</h3>
+                        <p class="brand-name">${p.brand}</p>
+                        <p class="price">$${p.price}</p>
+                        <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        renderProducts();
+    </script>
+</body>
+</html>
